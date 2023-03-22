@@ -1,0 +1,9 @@
+package com.wsm9175.coco
+
+import android.app.Application
+
+class App : Application(){
+    override fun onCreate() {
+        super.onCreate()
+    }
+}
