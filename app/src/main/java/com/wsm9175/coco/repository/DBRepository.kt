@@ -3,6 +3,7 @@ package com.wsm9175.coco.repository
 import com.wsm9175.coco.App
 import com.wsm9175.coco.db.CoinPriceDatabase
 import com.wsm9175.coco.db.entity.InterestCoinEntity
+import com.wsm9175.coco.db.entity.SelectedCoinPriceEntity
 
 class DBRepository {
     val context = App.context()
@@ -22,4 +23,11 @@ class DBRepository {
     // 사용자가 관심있어 한 코인만 가져오기
     fun getAllInterestSelectedCoinData() = db.interestCoinDAO().getSelectedData()
 
+
+    // 코인 가격
+    fun getAllCoinPriceData() = db.selectedCoinDAO().getAllData()
+
+    fun insertCoinPriceData(selectedCoinPriceEntity: SelectedCoinPriceEntity) = db.selectedCoinDAO().insert(selectedCoinPriceEntity)
+
+    fun getOneSelectedCoinData(coinName : String) = db.selectedCoinDAO().getOneCoinData(coinName)
 }
